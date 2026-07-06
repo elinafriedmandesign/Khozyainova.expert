@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бухгалтерские услуги в Москве для ИП и ООО | Людмила Хозяинова</title>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+
+<meta name="description" content="Профессиональное бухгалтерское сопровождение бизнеса, оптимизация налогов и финансовый консалтинг от эксперта с 30-летним стажем.">
+
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-bar">
+<div class="container">
+<nav>
+<div class="menu-burger" onclick="document.querySelector('.menu').classList.toggle('active')"><span></span></div>
+
+<ul class="menu" onclick="this.classList.remove('active')">
+<li><a href="#cv">про специалиста</a></li>
+<li><a href="#services">услуги</a></li>
+<li><a href="pdf/urgent.pdf" download>надо срочно</a></li>
+<li><a href="pdf/price.pdf" download>цены</a></li>
+<li><a href="glossary.html">список терминов</a></li>
+<li><a href="articles.html">статьи</a></li>
+<li><a href="#contacts">контакты</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+
+<div class="hero-grid">
+
+<!-- ЛЕВАЯ КОЛОНКА -->
+<div class="hero-left">
+<img src="img/Logo.png" alt="Логотип" class="logo">
+<h1>
+<span class="surname">Хозяинова</span>
+<span class="fullname">Людмила Владимировна</span>
+</h1>
+<p class="profession">
+Бухгалтерия, консультирование,<br>
+финансовое сопровождение бизнеса
+</p>
+</div>
+
+<!-- ЦЕНТРАЛЬНАЯ КОЛОНКА (ТЕЛЕФОН ТУТ) -->
+<div class="phone">
+<a href="tel:+79252129340">+7 925 212 93 40</a>
+</div>
+
+<!-- ПРАВАЯ КОЛОНКА -->
+<div class="hero-right">
+<div class="portrait-frame">
+<img src="img/Portret.png" alt="Людмила Владимировна" class="portrait">
+</div>
+</div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta-row">
+<a class="cta-button" href="mailto:Box4599@yandex.ru?subject=Получить консультацию&body=Здравствуйте! Меня интересует консультация.">Получить консультацию</a>
+<a class="cta-button" href="mailto:Box4599@yandex.ru?subject=Задать вопрос&body=Здравствуйте! Тема моего вопроса:">Задать вопрос</a>
+<a class="cta-button" href="mailto:Box4599@yandex.ru?subject=Заказать услугу&body=Здравствуйте! Меня интересует следующая услуга:">Заказать услугу</a>
+</div>
+
+</div>
+</section>
+
+<!-- =========================
+   СЕКЦИЯ CV (О СПЕЦИАЛИСТЕ)
+========================= -->
+<section id="cv" class="cv">
+  <div class="container">
+    <h2 class="cv-title">Эксперт в области финансов и бухгалтерского учёта</h2>
+    
+    <div class="cv-columns">
+      <!-- Левая колонка -->
+      <div class="cv-column">
+        <p>Более 30 лет моей профессиональной биографии посвящены финансам и бухгалтерскому учету. <br>За плечами — фундаментальное образование, полученное в престижном Финансовом университете в 80-90-е годы, и колоссальный практический опыт, экспертиза специалиста высочайшего уровня.</p>
+        <p>Моя карьера строилась на решении задач государственного масштаба и крупного бизнеса. <br>Я работала на стратегически важных проектах, сопровождала деятельность государственных корпораций, системообразующих предприятий и российских холдингов из различных отраслей экономики.</p>
+      </div>
+      
+      <!-- Правая колонка -->
+      <div class="cv-column">
+        <p>Пройдя путь от главного бухгалтера до финансового директора, я научилась видеть бизнес целиком: не просто вести учет, а управлять ресурсами, минимизировать риски и находить законные пути оптимизации. <p>Я работала на крупных проектах, вела учёт и финансы в государственных компаниях, сопровождала деятельность крупных бизнесов и российских холдингов.</p>
+        <p>Моя цель — стать вашим надежным финансовым тылом. На этом сайте я объединила весь свой накопленный опыт, чтобы предложить вам комплексные решения.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- =========================
+   СЕКЦИЯ УСЛУГИ (КАРУСЕЛЬ)
+========================= -->
+<section id="services" class="services">
+  <div class="container relative-container">
+    
+    <!-- Тонкие статичные стрелки навигации -->
+    <button class="slider-arrow prev-arrow" id="slidePrev">&#10216;</button>
+    <button class="slider-arrow next-arrow" id="slideNext">&#10217;</button>
+
+    <div class="slider-frame">
+      <div class="slider-track" id="sliderTrack">
+        
+        <!-- Карточка 1 -->
+        <div class="service-card" onclick="location.href='mailto:Box4599@yandex.ru?subject=Заказать услугу: Бухгалтерское сопровождение компаний&body=Здравствуйте! Меня интересует бухгалтерское сопровождение компаний.'">
+          <h3 class="card-title">Бухгалтерское сопровождение компаний</h3>
+          <p class="card-text">Полное ведение учёта с ежедневной обработкой первичной документации и формированием отчётности в установленные сроки.</p>
+        </div>
+
+        <!-- Карточка 2 -->
+        <div class="service-card" onclick="location.href='mailto:Box4599@yandex.ru?subject=Заказать услугу: Комплексный бухгалтерский аутсорсинг&body=Здравствуйте! Меня интересует комплексный бухгалтерский аутсорсинг.'">
+          <h3 class="card-title">Комплексный бухгалтерский аутсорсинг</h3>
+          <p class="card-text">Передача всех учётных функций профессионалу, что позволяет вам сосредоточиться на развитии бизнеса без кадровых и операционных рисков.</p>
+        </div>
+
+        <!-- Карточка 3 -->
+        <div class="service-card" onclick="location.href='mailto:Box4599@yandex.ru?subject=Заказать услугу: Налоговое консультирование&body=Здравствуйте! Меня интересует налоговое консультирование.'">
+          <h3 class="card-title">Налоговое консультирование</h3>
+          <p class="card-text">Экспертная помощь в выборе оптимальных налоговых режимов и законных способов минимизации налоговой нагрузки.</p>
+        </div>
+
+        <!-- Карточка 4 -->
+        <div class="service-card" onclick="location.href='mailto:Box4599@yandex.ru?subject=Заказать услугу: Финансовое консультирование&body=Здравствуйте! Меня интересует финансовое консультирование.'">
+          <h3 class="card-title">Финансовое консультирование</h3>
+          <p class="card-text">Анализ финансовых потоков и разработка стратегий для повышения рентабельности и инвестиционной привлекательности компании.</p>
+        </div>
+
+        <!-- Карточка 5 -->
+        <div class="service-card" onclick="location.href='mailto:Box4599@yandex.ru?subject=Заказать услугу: Подготовка и сдача отчетности&body=Здравствуйте! Меня интересует подготовка и сдача отчетности.'">
+          <h3 class="card-title">Подготовка и сдача отчетности</h3>
+          <p class="card-text">Оперативное формирование полного пакета бухгалтерской, налоговой и статистической отчётности с гарантией своевременной отправки во все инстанции.</p>
+        </div>
+
+        <!-- Карточка 6 -->
+        <div class="service-card" onclick="location.href='mailto:Box4599@yandex.ru?subject=Заказать услугу: Восстановление бухгалтерского учета&body=Здравствуйте! Меня интересует восстановление бухгалтерского учета.'">
+          <h3 class="card-title">Восстановление бухгалтерского учета</h3>
+          <p class="card-text">Систематизация утраченных или некорректных данных за любой период, чтобы привести учёт в порядок и избежать штрафных санкций.</p>
+        </div>
+
+        <!-- Карточка 7 -->
+        <div class="service-card" onclick="location.href='mailto:Box4599@yandex.ru?subject=Заказать услугу: Постановка бухгалтерского учета&body=Здравствуйте! Меня интересует постановка бухгалтерского учета.'">
+          <h3 class="card-title">Постановка бухгалтерского учета</h3>
+          <p class="card-text">Разработка и внедрение индивидуальной системы учёта «с нуля», включая настройку рабочих планов счетов и учётной политики предприятия.</p>
+        </div>
+
+        <!-- Карточка 8 -->
+        <div class="service-card" onclick="location.href='mailto:Box4599@yandex.ru?subject=Заказать услугу: Налоговое планирование&body=Здравствуйте! Меня интересует налоговое планирование.'">
+          <h3 class="card-title">Налоговое планирование</h3>
+          <p class="card-text">Легальная минимизация фискальной нагрузки через продуманный выбор налоговых режимов, льгот и схем расчёта с бюджетом.</p>
+        </div>
+
+        <!-- Карточка 9 -->
+        <div class="service-card" onclick="location.href='mailto:Box4599@yandex.ru?subject=Заказать услугу: Расчет заработной платы&body=Здравствуйте! Меня интересует расчет заработной платы.'">
+          <h3 class="card-title">Расчет заработной платы</h3>
+          <p class="card-text">Автоматизированный и безошибочный расчёт зарплат, больничных, отпускных и прочих выплат с полным учётом всех налоговых вычетов сотрудников.</p>
+        </div>
+
+        <!-- Карточка 10 -->
+        <div class="service-card" onclick="location.href='mailto:Box4599@yandex.ru?subject=Заказать услугу: Кадровое сопровождение&body=Здравствуйте! Меня интересует кадровое сопровождение.'">
+          <h3 class="card-title">Кадровое сопровождение</h3>
+          <p class="card-text">Ведение всей кадровой документации, от приказов о приёме до воинского учёта, с контролем кадровых рисков и соблюдением трудового законодательства.</p>
+        </div>
+
+        <!-- Карточка 11 -->
+        <div class="service-card" onclick="location.href='mailto:Box4599@yandex.ru?subject=Заказать услугу: Финансовый анализ бизнеса&body=Здравствуйте! Меня интересует финансовый анализ бизнеса.'">
+          <h3 class="card-title">Финансовый анализ бизнеса</h3>
+          <p class="card-text">Глубокий аудит ключевых финансовых показателей с выявлением слабых мест и подготовкой отчетов для принятия управленческих решений.</p>
+        </div>
+
+        <!-- Карточка 12 -->
+        <div class="service-card" onclick="location.href='mailto:Box4599@yandex.ru?subject=Заказать услугу: Взаимодействие с госорганами&body=Здравствуйте! Меня интересует сопровождение проверок и взаимодействие с контролирующими органами.'">
+          <h3 class="card-title">Взаимодействие с госорганами</h3>
+          <p class="card-text">Полное представительство интересов клиента при общении с ИФНС, фондами и другими госорганами, включая подготовку к проверкам.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Скрипт плавного горизонтального движения ленты -->
+<script>
+  const track = document.getElementById('sliderTrack');
+  const prevBtn = document.getElementById('slidePrev');
+  const nextBtn = document.getElementById('slideNext');
+  
+  let currentPosition = 0;
+  const speed = 1.0; 
+  let animationFrame;
+
+  function step() {
+    const maxScroll = track.scrollWidth - track.parentElement.offsetWidth;
+    currentPosition += speed;
+    
+    if (currentPosition >= maxScroll) {
+      currentPosition = 0; 
+    }
+    
+    track.style.transform = `translateX(-${currentPosition}px)`;
+    animationFrame = requestAnimationFrame(step);
+  }
+
+  animationFrame = requestAnimationFrame(step);
+
+  track.parentElement.addEventListener('mouseenter', () => cancelAnimationFrame(animationFrame));
+  track.parentElement.addEventListener('mouseleave', () => animationFrame = requestAnimationFrame(step));
+
+  const getScrollStep = () => {
+    const card = document.querySelector('.service-card');
+    return card ? card.offsetWidth + 24 : 300;
+  };
+
+  nextBtn.addEventListener('click', () => {
+    cancelAnimationFrame(animationFrame);
+    const maxScroll = track.scrollWidth - track.parentElement.offsetWidth;
+    currentPosition = Math.min(currentPosition + getScrollStep(), maxScroll);
+    track.style.transform = `translateX(-${currentPosition}px)`;
+  });
+
+  prevBtn.addEventListener('click', () => {
+    cancelAnimationFrame(animationFrame);
+    currentPosition = Math.max(currentPosition - getScrollStep(), 0);
+    track.style.transform = `translateX(-${currentPosition}px)`;
+  });
+</script>
+<!-- СЕКЦИЯ: ПРЕИМУЩЕСТВА СОТРУДНИЧЕСТВА -->
+<section class="advantages">
+    <div class="container">
+        
+        <!-- Главный заголовок раздела по центру -->
+        <h2 class="advantages-main-title">Преимущества сотрудничества</h2>
+        
+        <div class="advantages-grid">
+            
+            <!-- Колонка 1 -->
+            <div class="advantage-card">
+                <!-- Объединенный блок: цифра + иконка в одну строку -->
+                <div class="advantage-header">
+                    <div class="advantage-number">1.</div>
+                    <div class="advantage-icon">
+                        <img src="img/icons1.png" alt="Системное управление финансами">
+                    </div>
+                </div>
+                <h3 class="advantage-title">Системное управление<br>финансами</h3>
+                <p class="advantage-text">Пройдя путь от главного бухгалтера<br>до финансового директора, я<br>рассматриваю учёт как часть<br>стратегии бизнеса. Это позволяет не<br>просто фиксировать цифры, а<br>предлагать решения, которые<br>влияют на прибыль, оптимизируют<br>налоги и повышают<br>инвестиционную привлекательность<br>компании.</p>
+            </div>
+
+            <!-- Колонка 2 -->
+            <div class="advantage-card">
+                <!-- Объединенный блок: цифра + иконка в одну строку -->
+                <div class="advantage-header">
+                    <div class="advantage-number">2.</div>
+                    <div class="advantage-icon">
+                        <img src="img/icons2.png" alt="Опыт и экспертиза">
+                    </div>
+                </div>
+                <h3 class="advantage-title">Опыт<br>и экспертиза</h3>
+                <p class="advantage-text">30 лет практики включают<br>взаимодействие с<br>государственными корпорациями,<br>системообразующими холдингами<br>и частными бизнесами. Я владею<br>стандартами высшего уровня<br>контроля, знаю требования<br>регуляторов «изнутри» и<br>выстраиваю учёт так, чтобы он<br>выдерживал любые проверки<br>без штрафов и потерь.</p>
+            </div>
+
+            <!-- Колонка 3 -->
+            <div class="advantage-card">
+                <!-- Объединенный блок: цифра + иконка в одну строку -->
+                <div class="advantage-header">
+                    <div class="advantage-number">3.</div>
+                    <div class="advantage-icon">
+                        <img src="img/icons3.png" alt="Приоритет качества">
+                    </div>
+                </div>
+                <h3 class="advantage-title">Приоритет<br>качества</h3>
+                <p class="advantage-text">Основой моей работы является<br>открытый диалог и доступность для<br>клиента в любой рабочий момент.<br>В ситуациях, требующих<br>безотлагательных решений, я<br>мобилизую ресурсы и обеспечиваю<br>результат в сжатые сроки,<br>сохраняя при этом безупречное<br>качество, которого требует статус<br>профессионала.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- СЕКЦИЯ: КОНТАКТЫ И ПОДВАЛ -->
+<section id="contacts" class="contacts-section">
+    <div class="container">
+        
+        <!-- Изящная тонкая синяя линия в ширину контейнера -->
+        <div class="contacts-divider-line"></div>
+        
+        <!-- Заголовок по центру -->
+        <h2 class="contacts-title">Контакты</h2>
+        
+        <!-- Горизонтальный ряд кнопок -->
+        <div class="contacts-buttons-grid">
+            
+            <!-- Кнопка 1: Написать -->
+            <div class="contact-btn-wrapper">
+                <a href="mailto:Box4599@yandex.ru?subject=Вопрос" class="contact-button">
+                    <img src="img/mail.png" alt="Письмо">
+                    <span>Написать</span>
+                </a>
+                <p class="contact-disclaimer">Напишите тему вашего вопроса, чтобы получить обратную связь быстрее.</p>
+            </div>
+
+            <!-- Кнопка 2: Позвонить -->
+            <div class="contact-btn-wrapper">
+                <a href="mailto:Box4599@yandex.ru?subject=Заказ звонка" class="contact-button">
+                    <img src="img/phone.png" alt="Телефон">
+                    <span>Позвонить</span>
+                </a>
+                <p class="contact-disclaimer">Напишите нам, чтобы заказать звонок. Это позволит получить обратную связь быстрее.</p>
+            </div>
+
+            <!-- Кнопка 3: WhatsApp -->
+            <div class="contact-btn-wrapper">
+                <a href="https://wa.me" target="_blank" class="contact-button">
+                    <img src="img/WhatsApp.png" alt="WhatsApp">
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+
+            <!-- Кнопка 4: Max -->
+            <div class="contact-btn-wrapper">
+                <a href="#" class="contact-button">
+                    <img src="img/Max.png" alt="Max">
+                    <span>Max</span>
+                </a>
+            </div>
+
+            <!-- Кнопка 5: VK -->
+            <div class="contact-btn-wrapper">
+                <a href="https://vk.com" target="_blank" class="contact-button">
+                    <img src="img/VK.png" alt="VK">
+                    <span>VK</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- СИНЯЯ ГРАДИЕНТНАЯ ПОЛОСА (ФУТЕР) -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-row">
+            
+            <!-- Логотип слева -->
+            <div class="footer-logo">
+                <img src="img/logo.png" alt="Логотип">
+            </div>
+            
+            <!-- Копирайт по центру -->
+            <div class="footer-copyright">
+                <p>© 2026 Lyudmila Khoziainova — Financial Expert. All rights reserved. Все права защищены.</p>
+            </div>
+            
+            <!-- Телефон справа -->
+            <div class="footer-phone">
+                <a href="tel:+79252129340">+7 925 212 93 40</a>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

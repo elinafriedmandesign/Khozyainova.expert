@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Справочник бухгалтерских терминов и понятий | Эксперт Хозяинова</title>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+
+<meta name="description" content="Краткий понятный справочник бухгалтерских услуг и налоговых терминов для руководителей и предпринимателей.">
+
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+  .glossary-section {
+    padding: 60px 0;
+    background: #ffffff;
+  }
+    .menu a { display: block; }
+
+  /* Заголовок: Montserrat Regular, 24px, синий флажком влево */
+  .glossary-main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #2E3182;
+    text-align: left;
+    margin-bottom: 30px;
+    line-height: 1.3;
+  }
+
+  /* Алфавитная панель: уменьшен отступ снизу до 25px */
+  .alphabet-container {
+    max-width: 100%;
+    margin: 0 0 25px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  /* Кнопки алфавита: сделаны мельче, цвет текста светлой кнопки 3F99E5 */
+  .letter-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #3F99E5;
+    background: #ffffff;
+    border: 1px solid #3F99E5;
+    border-radius: 3px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .letter-btn:hover {
+    background: #f4f7fe;
+  }
+
+  /* Активная кнопка: цвет 1A3A9D */
+  .letter-btn.active {
+    background: #1A3A9D;
+    color: #ffffff;
+    border-color: #1A3A9D;
+  }
+
+  /* Сетка строго в 3 колонки */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: start;
+    width: 100%;
+  }
+
+  /* Стилизация карточки */
+  .glossary-item {
+    background: #ffffff;
+    border-bottom: 1px solid #eef2f7;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Название термина: Montserrat Medium, никакого болда */
+  .term-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2E3182;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .term-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+    font-weight: 300;
+    color: #4a4a4a;
+    line-height: 1.4;
+  }
+
+  .glossary-item.hidden {
+    display: none !important;
+  }
+
+  @media (max-width: 992px) {
+    .glossary-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .glossary-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+<div class="container">
+<nav>
+<div class="menu-burger" onclick="document.querySelector('.menu').classList.toggle('active')"><span></span></div>
+
+<ul class="menu" onclick="this.classList.remove('active')">
+<li><a href="index.html#cv">про специалиста</a></li>
+<li><a href="index.html#services">услуги</a></li>
+<li><a href="pdf/urgent.pdf" download>надо срочно</a></li>
+<li><a href="pdf/price.pdf" download>цены</a></li>
+<li><a href="glossary.html" class="active">список терминов</a></li>
+<li><a href="articles.html">статьи</a></li>
+<li><a href="#contacts">контакты</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<div class="hero-grid">
+
+<div class="hero-left">
+<img src="img/Logo.png" alt="Логотип" class="logo">
+<h1>
+<span class="surname">Хозяинова</span>
+<span class="fullname">Людмила Владимировна</span>
+</h1>
+<p class="profession">
+Бухгалтерия, консультирование,<br>
+финансовое сопровождение бизнеса
+</p>
+</div>
+
+<div class="phone">
+<a href="tel:+79252129340">+7 925 212 93 40</a>
+</div>
+
+<div class="hero-right">
+<div class="portrait-frame">
+<img src="img/Portret.png" alt="Людмила Владимировна" class="portrait">
+</div>
+</div>
+
+</div>
+
+<div class="cta-row">
+<a class="cta-button" href="mailto:Box4599@yandex.ru?subject=Получить консультацию&body=Здравствуйте! Меня интересует консультация.">Получить консультацию</a>
+<a class="cta-button" href="mailto:Box4599@yandex.ru?subject=Задать вопрос&body=Здравствуйте! Тема моего вопроса:">Задать вопрос</a>
+<a class="cta-button" href="mailto:Box4599@yandex.ru?subject=Заказать услугу&body=Здравствуйте! Меня интересует следующая услуга:">Заказать услугу</a>
+</div>
+</div>
+</section>
+
+<section class="glossary-section">
+  <div class="container">
+    
+    <h2 class="glossary-main-title">Краткий справочник бухгалтерских<br>услуг и терминов</h2>
+    
+    <!-- Небитый алфавитный ряд -->
+    <div class="alphabet-container" id="alphabetContainer">
+      <button class="letter-btn active" data-filter="all">Все</button>
+      <button class="letter-btn" data-filter="А">А</button>
+      <button class="letter-btn" data-filter="Б">Б</button>
+      <button class="letter-btn" data-filter="В">В</button>
+      <button class="letter-btn" data-filter="Г">Г</button>
+      <button class="letter-btn" data-filter="Д">Д</button>
+      <button class="letter-btn" data-filter="Ж">Ж</button>
+      <button class="letter-btn" data-filter="З">З</button> 
+      <button class="letter-btn" data-filter="И">И</button>
+      <button class="letter-btn" data-filter="К">К</button>
+      <button class="letter-btn" data-filter="Л">Л</button>
+      <button class="letter-btn" data-filter="М">М</button>
+      <button class="letter-btn" data-filter="Н">Н</button>
+      <button class="letter-btn" data-filter="О">О</button>
+      <button class="letter-btn" data-filter="П">П</button>
+      <button class="letter-btn" data-filter="Р">Р</button>
+      <button class="letter-btn" data-filter="С">С</button>
+      <button class="letter-btn" data-filter="У">У</button>
+      <button class="letter-btn" data-filter="Ф">Ф</button>
+      <button class="letter-btn" data-filter="Х">Х</button>
+      <button class="letter-btn" data-filter="Ц">Ц</button>
+      <button class="letter-btn" data-filter="Ш">Ш</button>
+      <button class="letter-btn" data-filter="Щ">Щ</button>
+      <button class="letter-btn" data-filter="Э">Э</button>
+      <button class="letter-btn" data-filter="Ю">Ю</button>
+      <button class="letter-btn" data-filter="Я">Я</button>
+    </div>
+
+    <div class="glossary-grid" id="glossaryGrid">
+        <!-- Карточка 1 -->
+        <div class="glossary-item" data-letter="Б">
+          <div class="term-header">Бухгалтер на аутсорсинг для ИП</div>
+          <p class="term-text">Бухгалтер, который удаленно ведет бухгалтерский и налоговый учет индивидуального предпринимателя, рассчитывает налоги и страховые взносы, готовит и сдает отчетность в контролирующие органы. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 2 -->
+        <div class="glossary-item" data-letter="Б">
+          <div class="term-header">Бухгалтер на аутсорсинг для ООО</div>
+          <p class="term-text">Внешний специалист, который ведет бухгалтерский и налоговый учет общества с ограниченной ответственностью, готовит бухгалтерскую и налоговую отчетность, рассчитывает заработную плату, налоги и страховые взносы. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 3 -->
+        <div class="glossary-item" data-letter="Б">
+          <div class="term-header">Бухгалтерское сопровождение</div>
+          <p class="term-text">Регулярное ведение бухгалтерского и налогового учета, подготовка и сдача отчетности, а также консультирование бизнеса без оформления бухгалтера в штат компании. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+
+        <!-- Карточка 4 -->
+        <div class="glossary-item" data-letter="В">
+          <div class="term-header">Внешний бухгалтер</div>
+          <p class="term-text">Специалист, оказывающий бухгалтерские услуги удаленно или с периодическими выездами к клиенту, не являясь штатным сотрудником организации. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 5 -->
+        <div class="glossary-item" data-letter="С">
+          <div class="term-header">Соблюдение сроков по отчетности</div>
+          <p class="term-text">Контроль сроков подготовки и сдачи налоговой, бухгалтерской, кадровой и иной обязательной отчетности для предотвращения просрочек и штрафных санкций. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 6 -->
+        <div class="glossary-item" data-letter="С">
+          <div class="term-header">Сроки по налогам</div>
+          <p class="term-text">Установленные законодательством даты уплаты налогов, страховых взносов и авансовых платежей в зависимости от применяемой системы налогообложения. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 7 -->
+        <div class="glossary-item" data-letter="О">
+          <div class="term-header">Оптимизировать налоги</div>
+          <p class="term-text">Применение законных способов снижения налоговой нагрузки за счет выбора оптимального налогового режима, использования льгот, вычетов и корректного учета расходов. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+
+        <!-- Карточка 8 -->
+        <div class="glossary-item" data-letter="К">
+          <div class="term-header">Консультации по уменьшению и оптимизации налогов</div>
+          <p class="term-text">Анализ деятельности компании или предпринимателя и разработка законных решений, позволяющих снизить налоговую нагрузку и минимизировать налоговые риски. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 9 -->
+        <div class="glossary-item" data-letter="В">
+          <div class="term-header">Восстановить учет</div>
+          <p class="term-text">Восстановление бухгалтерского и налогового учета за прошлые периоды при отсутствии документов, выявлении ошибок, утрате данных или смене бухгалтера. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 10 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">Посчитать зарплату</div>
+          <p class="term-text">Расчет заработной платы сотрудников с учетом окладов, премий, доплат, удержаний, больничных, отпускных и других предусмотренных законодательством выплат. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+
+        <!-- Карточка 11 -->
+        <div class="glossary-item" data-letter="Р">
+          <div class="term-header">Рассчитать налоги, включая НДФЛ и страховые взносы</div>
+          <p class="term-text">Расчет налога на доходы физических лиц (НДФЛ) и страховых взносов с выплат сотрудникам в соответствии с требованиями законодательства. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 12 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">Поставить учет с нуля</div>
+          <p class="term-text">Организация бухгалтерского учета для нового бизнеса: разработка учетной политики, настройка учетной программы, ввод начальных данных и запуск системы учета. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 13 -->
+        <div class="glossary-item" data-letter="Н">
+          <div class="term-header">Настройка и внедрение ЭДО</div>
+          <p class="term-text">Подключение и настройка систем электронного документооборота (Диадок, СБИС и других), выпуск квалифицированной электронной подписи (КЭП) и организация обмена электронными документами с контрагентами.</p>
+        </div>
+
+
+        <!-- Карточка 14 -->
+        <div class="glossary-item" data-letter="С">
+          <div class="term-header">Синхронизация учетных систем</div>
+          <p class="term-text">Настройка автоматического обмена данными между CRM-системами, интернет-магазинами, маркетплейсами и бухгалтерскими программами (например, 1С) для исключения ручного ввода информации.</p>
+        </div>
+
+        <!-- Карточка 15 -->
+        <div class="glossary-item" data-letter="М">
+          <div class="term-header">Маркетплейс-бухгалтерия</div>
+          <p class="term-text">Специализированное ведение бухгалтерского и налогового учета для продавцов (селлеров), работающих на маркетплейсах Wildberries, Ozon, Яндекс Маркет и других торговых площадках. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 16 -->
+        <div class="glossary-item" data-letter="Р">
+          <div class="term-header">Работа с отчетами комиссионеров</div>
+          <p class="term-text">Обработка, проверка и отражение в бухгалтерском учете отчетов комиссионеров маркетплейсов, сверка продаж, комиссий, возвратов, удержаний и взаиморасчетов с торговыми площадками. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 17 -->
+        <div class="glossary-item" data-letter="Б">
+          <div class="term-header">Бухгалтерское сопровождение бизнеса</div>
+          <p class="term-text">Комплексное бухгалтерское обслуживание текущей деятельности организации или предпринимателя, включая ведение учета, подготовку отчетности, расчет заработной платы и взаимодействие с государственными органами. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+
+        <!-- Карточка 18 -->
+        <div class="glossary-item" data-letter="Б">
+          <div class="term-header">Бухгалтерия на аутсорсинге</div>
+          <p class="term-text">Передача функций бухгалтерского и налогового учета специализированной компании или внешнему бухгалтеру, отвечающим за правильность учета и своевременное представление отчетности. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 19 -->
+        <div class="glossary-item" data-letter="Н">
+          <div class="term-header">Налоговое консультирование</div>
+          <p class="term-text">Консультирование по вопросам применения налогового законодательства, расчета налогов, налоговых последствий сделок и выбора оптимальных решений для бизнеса. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 20 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">Подготовка и сдача отчетности</div>
+          <p class="term-text">Подготовка бухгалтерской, налоговой, кадровой и иной обязательной отчетности, ее проверка и своевременное представление в контролирующие органы. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+
+        <!-- Карточка 21 -->
+        <div class="glossary-item" data-letter="В">
+          <div class="term-header">Восстановление бухгалтерского учета</div>
+          <p class="term-text">Комплекс работ по восстановлению бухгалтерского и налогового учета за периоды, в которых учет не велся, велся с ошибками или были утрачены документы.</p>
+        </div>
+
+        <!-- Карточка 22 -->
+        <div class="glossary-item" data-letter="Ф">
+          <div class="term-header">Финансовый консалтинг</div>
+          <p class="term-text">Анализ финансового состояния компании, оценка рентабельности, ликвидности, платежеспособности и других показателей с разработкой рекомендаций по повышению эффективности бизнеса. <a href="articles.html" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">статьи</a></p>
+        </div>
+
+        <!-- Карточка 23 -->
+        <div class="glossary-item" data-letter="О">
+          <div class="term-header">Оптимизация налоговой нагрузки</div>
+          <p class="term-text">Комплекс законных мероприятий по снижению налоговой нагрузки за счет выбора оптимального налогового режима, корректировки учетной политики, использования льгот и вычетов. <a href="articles.html" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">статьи</a></p>
+        </div>
+
+
+        <!-- Карточка 24 -->
+        <div class="glossary-item" data-letter="Р">
+          <div class="term-header">Расчет заработной платы</div>
+          <p class="term-text">Ежемесячное начисление заработной платы сотрудникам с учетом отработанного времени, премий, надбавок, отпускных, больничных, удержаний и налоговых вычетов. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+        <!-- Карточка 25 -->
+        <div class="glossary-item" data-letter="К">
+          <div class="term-header">Кадровый учет и документация</div>
+          <p class="term-text">Ведение кадрового делопроизводства: оформление приема, перевода и увольнения сотрудников, подготовка приказов, личных дел, графиков отпусков, табелей учета рабочего времени и других кадровых документов. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 26 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">Подготовка первичной документации</div>
+          <p class="term-text">Оформление первичных учетных документов: счетов, счетов-фактур, актов, накладных, универсальных передаточных документов (УПД), актов сверки и иных документов, подтверждающих хозяйственные операции. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+
+        <!-- Карточка 27 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">Постановка бухгалтерского учета</div>
+          <p class="term-text">Организация системы бухгалтерского учета с разработкой учетной политики, настройкой рабочего плана счетов, регистров учета и документооборота с учетом специки деятельности организации. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+        <!-- Карточка 28 -->
+        <div class="glossary-item" data-letter="К">
+          <div class="term-header">Консультации для руководителей и предпринимателей</div>
+          <p class="term-text">Консультирование по вопросам бухгалтерского учета, налогообложения, отчетности, кадрового учета, financial планирования и ведения бизнеса. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 29 -->
+        <div class="glossary-item" data-letter="Б">
+          <div class="term-header">Бухгалтерское сопровождение компаний</div>
+          <p class="term-text">Комплексное ведение бухгалтерского и налогового учета юридических лиц на постоянной основе, включая подготовку отчетности и консультирование. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+
+        <!-- Карточка 30 -->
+        <div class="glossary-item" data-letter="К">
+          <div class="term-header">Комплексный бухгалтерский аутсорсинг</div>
+          <p class="term-text">Полная передача бухгалтерского и налогового учета специализированной компании: от обработки первичной документации до подготовки отчетности и взаимодействия с контролирующими органами.</p>
+        </div>
+
+
+        <!-- Карточка 31 -->
+        <div class="glossary-item" data-letter="Ф">
+          <div class="term-header">Финансовое консультирование</div>
+          <p class="term-text">Консультирование по вопросам управления денежными потоками, структуры капитала, финансового планирования и повышения финансовой устойчивости бизнеса.</p>
+        </div>
+        <!-- Карточка 32 -->
+        <div class="glossary-item" data-letter="Н">
+          <div class="term-header">Налоговое планирование</div>
+          <p class="term-text">Разработка законных способов управления налоговой нагрузкой с учетом особенностей деятельности организации, действующего законодательства и перспектив развития бизнеса. <a href="pdf/price.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">цены</a></p>
+        </div>
+
+        <!-- Карточка 33 -->
+        <div class="glossary-item" data-letter="К">
+          <div class="term-header">Кадровое сопровождение</div>
+          <p class="term-text">Комплексное ведение кадрового делопроизводства: оформление трудовых договоров, приказов, личных карточек, графиков отпусков, табелей учета рабочего времени и других обязательных кадровых документов. <a href="pdf/price.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">цены</a></p>
+        </div>
+
+        <!-- Карточка 34 -->
+        <div class="glossary-item" data-letter="Ф">
+          <div class="term-header">Финансовый анализ бизнеса</div>
+          <p class="term-text">Комплексный анализ финансовых показателей компании, включая оценку рентабельности, ликвидности, оборачиваемости, финансовой устойчивости и эффективности использования ресурсов. <a href="pdf/price.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">цены</a></p>
+        </div>
+
+
+        <!-- Карточка 35 -->
+        <div class="glossary-item" data-letter="С">
+          <div class="term-header">Сопровождение проверок и взаимодействие с контролирующими органами</div>
+          <p class="term-text">Подготовка документов, ответов на требования и пояснений для налоговых и иных контролирующих органов, сопровождение клиента в ходе проверок и защита его интересов в рамках действующего законодательства. <a href="pdf/urgent.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">надо срочно</a></p>
+        </div>
+
+
+        <!-- Карточка 36 -->
+        <div class="glossary-item" data-letter="В">
+          <div class="term-header">Ведение бухгалтерского и налогового учета</div>
+          <p class="term-text">Комплексное ведение бухгалтерского и налогового учета, обработка первичной документации, отражение хозяйственных операций, расчет налогов и контроль соблюдения требований законодательства. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 37 -->
+        <div class="glossary-item" data-letter="К">
+          <div class="term-header">Кадровое администрирование</div>
+          <p class="term-text">Ведение кадрового делопроизводства, оформление приема, перевода и увольнения сотрудников, подготовка кадровых документов, ведение воинского учета и контроль соблюдения требований трудового законодательства. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 38 -->
+        <div class="glossary-item" data-letter="Р">
+          <div class="term-header">Разбор и сортировка бумажных архивов</div>
+          <p class="term-text">Систематизация бумажных документов по номенклатуре дел, видам, периодам и срокам хранения для обеспечения удобного поиска и дальнейшего архивного хранения. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+
+        <!-- Карточка 39 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">Переплет и формирование томов</div>
+          <p class="term-text">Подготовка документов к архивному хранению: формирование дел, прошивка, нумерация листов, оформление обложек и переплет в соответствии с установленными требованиями.</p>
+        </div>
+        <!-- Карточка 32 -->
+        <div class="glossary-item" data-letter="Н">
+          <div class="term-header">Налоговое планирование</div>
+          <p class="term-text">Разработка законных способов управления налоговой нагрузкой с учетом особенностей деятельности организации, действующего законодательства и перспектив развития бизнеса. <a href="pdf/price.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">цены</a></p>
+        </div>
+
+        <!-- Карточка 33 -->
+        <div class="glossary-item" data-letter="К">
+          <div class="term-header">Кадровое сопровождение</div>
+          <p class="term-text">Комплексное ведение кадрового делопроизводства: оформление трудовых договоров, приказов, личных карточек, графиков отпусков, табелей учета рабочего времени и других обязательных кадровых документов. <a href="pdf/price.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">цены</a></p>
+        </div>
+
+        <!-- Карточка 34 -->
+        <div class="glossary-item" data-letter="Ф">
+          <div class="term-header">Финансовый анализ бизнеса</div>
+          <p class="term-text">Комплексный анализ финансовых показателей компании, включая оценку рентабельности, ликвидности, оборачиваемости, financial устойчивости и эффективности использования ресурсов. <a href="pdf/price.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">цены</a></p>
+        </div>
+
+
+        <!-- Карточка 43 -->
+        <div class="glossary-item" data-letter="О">
+          <div class="term-header">Организация производственной практики</div>
+          <p class="term-text">Предоставление студентам высших и средних профессиональных учебных заведений возможности прохождения официальной производственной или преддипломной практики.</p>
+        </div>
+
+        <!-- Карточка 44 -->
+        <div class="glossary-item" data-letter="С">
+          <div class="term-header">Стажировки с последующим трудоустройством</div>
+          <p class="term-text">Практическое обучение начинающих бухгалтеров под руководством опытных специалистов с возможностью дальнейшего трудоустройства.</p>
+        </div>
+
+        <!-- Карточка 45 -->
+        <div class="glossary-item" data-letter="Р">
+          <div class="term-header">Разработка учебных пособий и курсов</div>
+          <p class="term-text">Создание методических материалов, учебных программ, инструкций, пособий и практических курсов по бухгалтерскому учету, налогообложению и работе с бухгалтерскими программами.</p>
+        </div>
+
+        <!-- Карточка 46 -->
+        <div class="glossary-item" data-letter="К">
+          <div class="term-header">Корпоративное обучение сотрудников клиента</div>
+          <p class="term-text">Проведение обучения и практических занятий для сотрудников клиента по вопросам документооборота, работы в ЭДО, оформления первичных документов, кадрового учета и взаимодействия с бухгалтерией.</p>
+        </div>
+
+        <!-- Карточка 47 -->
+        <div class="glossary-item" data-letter="Э">
+          <div class="term-header">Экспресс-аудит перед налоговой проверкой</div>
+          <p class="term-text">Оперативная проверка бухгалтерского и налогового учета с целью выявления ошибок, оценки налоговых рисков и подготовки компании к проверке контролирующих органов. <a href="pdf/urgent.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">надо срочно</a></p>
+        </div>
+
+        <!-- Карточка 48 -->
+        <div class="glossary-item" data-letter="С">
+          <div class="term-header">Сопровождение при проверках налоговой</div>
+          <p class="term-text">Подготовка документов и пояснений, ответы на требования налоговых органов, сопровождение клиента во время налоговой проверки и защита его интересов. <a href="pdf/urgent.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">надо срочно</a></p>
+        </div>
+
+
+        <!-- Карточка 49 -->
+        <div class="glossary-item" data-letter="О">
+          <div class="term-header">Оптимизация налогообложения (законная)</div>
+          <p class="term-text">Разработка и внедрение законных способов снижения налоговой нагрузки с использованием предусмотренных законодательством налоговых режимов, льгот, вычетов и иных инструментов налогового планирования. <a href="articles.html" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">статьи</a></p>
+        </div>
+
+        <!-- Карточка 50 -->
+        <div class="glossary-item" data-letter="Ф">
+          <div class="term-header">Финансовый консалтинг и бюджетирование</div>
+          <p class="term-text">Разработка системы управленческого учета, составление бюджетов доходов и расходов (БДР), бюджетов движения денежных средств (БДДС), финансовых планов и управленческой отчетности для повышения эффективности бизнеса. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div> 
+
+
+        <!-- Карточка 51 -->
+        <div class="glossary-item" data-letter="А" id="term51">
+          <div class="term-header">Аналитика и управленческая отчетность для маркетплейсов</div>
+          <p class="term-text">Формирование сводной аналитики по продажам на маркетплейсах (Wildberries, Ozon, Яндекс Маркет и др.), включая расчет маржинальности, комиссий, логистических затрат, возвратов и рекламных расходов, а также подготовка управленческих отчетов (P&L по площадкам и товарам) для принятия решений по ассортименту и ценообразованию. <a href="articles.html" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">статьи</a></p>
+        </div>
+
+
+        <!-- Карточка 52 -->
+        <div class="glossary-item" data-letter="У">
+          <div class="term-header">Упрощенка (УСН)</div>
+          <p class="term-text">Упрощенная система налогообложения для ИП и ООО с пониженной налоговой нагрузкой и упрощенным учетом и отчетностью.</p>
+        </div>
+
+        <!-- Карточка 53 -->
+        <div class="glossary-item" data-letter="Н">
+          <div class="term-header">НДС</div>
+          <p class="term-text">Налог на добавленную стоимость, косвенный налог, включаемый в цену товаров и услуг и уплачиваемый в бюджет при реализации.</p>
+        </div>
+
+        <!-- Карточка 54 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">Проводки в бухгалтерии</div>
+          <p class="term-text">Записи хозяйственных операций в бухгалтерском учете, отражающие движение денег и активов по счетам.</p>
+        </div>
+
+        <!-- Карточка 55 -->
+        <div class="glossary-item" data-letter="Д">
+          <div class="term-header">Дебет и кредит</div>
+          <p class="term-text">Базовые элементы бухгалтерского учета: дебет отражает поступление или увеличение активов, кредит — их уменьшение или обязательства.</p>
+        </div>
+
+        <!-- Карточка 56 -->
+        <div class="glossary-item" data-letter="Б">
+          <div class="term-header">Бухгалтерский баланс</div>
+          <p class="term-text">Основная форма отчетности, отражающая активы, обязательства и капитал компании на определенную дату.</p>
+        </div>
+
+        <!-- Карточка 57 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">Прибыль предприятия</div>
+          <p class="term-text">Финансовый результат деятельности компании, рассчитываемый как разница между доходами и расходами.</p>
+        </div>
+
+        <!-- Карточка 58 -->
+        <div class="glossary-item" data-letter="В">
+          <div class="term-header">Выручка</div>
+          <p class="term-text">Общий доход компании от продажи товаров, работ или услуг до вычета расходов.</p>
+        </div>
+
+        <!-- Карточка 59 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">Первичные документы</div>
+          <p class="term-text">Документы, подтверждающие факт хозяйственной операции: счета, акты, накладные, УПД и другие.</p>
+        </div>
+
+        <!-- Карточка 60 -->
+        <div class="glossary-item" data-letter="А">
+          <div class="term-header">Акт выполненных работ</div>
+          <p class="term-text">Документ, подтверждающий факт оказания услуг или выполнения работ и служащий основанием для оплаты.</p>
+        </div>
+
+        <!-- Карточка 61 -->
+        <div class="glossary-item" data-letter="С">
+          <div class="term-header">Счет-фактура</div>
+          <p class="term-text">Документ, используемый для учета НДС и подтверждения суммы налога при продаже товаров или услуг.</p>
+        </div>
+
+        <!-- Карточка 62 -->
+        <div class="glossary-item" data-letter="У">
+          <div class="term-header">УПД (универсальный передаточный документ)</div>
+          <p class="term-text">Документ, объединяющий функции счета-фактуры и акта или накладной. <a href="pdf/urgent.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">надо срочно</a></p>
+        </div>
+
+        <!-- Карточка 63 -->
+        <div class="glossary-item" data-letter="Н">
+          <div class="term-header">Налоговая декларация</div>
+          <p class="term-text">Официальный отчет в налоговую службу о доходах, расходах и налоговых обязательствах. <a href="pdf/urgent.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">надо срочно</a></p>
+        </div>
+
+        <!-- Карточка 64 -->
+        <div class="glossary-item" data-letter="К">
+          <div class="term-header">Камеральная проверка</div>
+          <p class="term-text">Проверка налоговой отчетности без выезда в компанию, проводимая на основе представленных документов. <a href="pdf/urgent.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">надо срочно</a></p>
+        </div>
+
+
+        <!-- Карточка 65 -->
+        <div class="glossary-item" data-letter="В">
+          <div class="term-header">Выездная налоговая проверка</div>
+          <p class="term-text">Проверка деятельности компании на месте с анализом первичных документов и учета.</p>
+        </div>
+
+        <!-- Карточка 66 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">Пенсионные взносы (СФР)</div>
+          <p class="term-text">Обязательные страховые взносы на пенсионное обеспечение работников, уплачиваемые работодателем.</p>
+        </div>
+
+        <!-- Карточка 67 -->
+        <div class="glossary-item" data-letter="С">
+          <div class="term-header">Страховые взносы</div>
+          <p class="term-text">Обязательные платежи в государственные фонды: пенсионное, медицинское и социальное страхование.</p>
+        </div>
+
+        <!-- Карточка 68 -->
+        <div class="glossary-item" data-letter="З">
+          <div class="term-header">Зарплатные налоги</div>
+          <p class="term-text">Обобщенное название НДФЛ и страховых взносов, удерживаемых и начисляемых с заработной платы сотрудников.</p>
+        </div>
+
+        <!-- Карточка 69 -->
+        <div class="glossary-item" data-letter="К">
+          <div class="term-header">Кассовая дисциплина</div>
+          <p class="term-text">Правила ведения наличных расчетов и оформления кассовых операций в организации.</p>
+        </div>
+
+        <!-- Карточка 70 -->
+        <div class="glossary-item" data-letter="Р">
+          <div class="term-header">Расчетный счет</div>
+          <p class="term-text">Банковский счет организации или ИП, используемый для безналичных расчетов с контрагентами и государством.</p>
+        </div>
+
+        <!-- Карточка 71 -->
+        <div class="glossary-item" data-letter="Н">
+          <div class="term-header">Налоговый режим</div>
+          <p class="term-text">Система налогообложения, определяющая порядок расчета и уплаты налогов (УСН, ОСНО, патент и др.).</p>
+        </div>
+
+        <!-- Карточка 72 -->
+        <div class="glossary-item" data-letter="Н">
+          <div class="term-header">НДС к вычету</div>
+          <p class="term-text">Сумма входного НДС, которую компания может уменьшить из налога к уплате при соблюдении условий законодательства.</p>
+        </div>
+
+        <!-- Карточка 73 -->
+        <div class="glossary-item" data-letter="В">
+          <div class="term-header">Входящий НДС</div>
+          <p class="term-text">НДС, который компания платит поставщикам при покупке товаров или услуг.</p>
+        </div>
+
+        <!-- Карточка 74 -->
+        <div class="glossary-item" data-letter="И">
+          <div class="term-header">Исходящий НДС</div>
+          <p class="term-text">НДС, который компания начисляет покупателям при продаже товаров или услуг.</p>
+        </div>
+        <!-- Карточка 75 -->
+        <div class="glossary-item" data-letter="Н">
+          <div class="term-header">Налоговая нагрузка</div>
+          <p class="term-text">Общий уровень налоговых платежей компании по отношению к ее доходам или прибыли.</p>
+        </div>
+
+        <!-- Карточка 76 -->
+        <div class="glossary-item" data-letter="У">
+          <div class="term-header">Учет доходов и расходов</div>
+          <p class="term-text">Система фиксации всех поступлений и затрат компании для расчета налогов и финансового результата.</p>
+        </div>
+
+        <!-- Карточка 77 -->
+        <div class="glossary-item" data-letter="Р">
+          <div class="term-header">Расходы компании</div>
+          <p class="term-text">Все затраты бизнеса, связанные с его деятельностью: закупки, аренда, зарплаты, услуги и другие платежи.</p>
+        </div>
+
+        <!-- Карточка 78 -->
+        <div class="glossary-item" data-letter="Б">
+          <div class="term-header">Бухгалтерская проводка</div>
+          <p class="term-text">Формализованная запись операции в учете, показывающая движение средств между счетами.</p>
+        </div>
+
+        <!-- Карточка 79 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">План счетов</div>
+          <p class="term-text">Структурированный перечень бухгалтерских счетов, используемых для учета всех операций компании.</p>
+        </div>
+
+        <!-- Карточка 80 -->
+        <div class="glossary-item" data-letter="З">
+          <div class="term-header">Закрытие месяца</div>
+          <p class="term-text">Процедура завершения учетного периода с проверкой операций, начислений и формированием итоговых отчетов.</p>
+        </div>
+
+        <!-- Карточка 81 -->
+        <div class="glossary-item" data-letter="З">
+          <div class="term-header">Закрытие года</div>
+          <p class="term-text">Итоговое завершение бухгалтерского года с формированием годовой отчетности и расчетом финансового результата. <a href="pdf/urgent.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">надо срочно</a></p>
+        </div>
+
+
+        <!-- Карточка 82 -->
+        <div class="glossary-item" data-letter="Ф">
+          <div class="term-header">Финансовый результат</div>
+          <p class="term-text">Итог деятельности компании за период — прибыль или убыток.</p>
+        </div>
+
+        <!-- Карточка 83 -->
+        <div class="glossary-item" data-letter="Н">
+          <div class="term-header">Налоговая база</div>
+          <p class="term-text">Сумма, с которой рассчитывается налог в соответствии с выбранным режимом налогообложения.</p>
+        </div>
+
+        <!-- Карточка 84 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">Пени и штрафы по налогам</div>
+          <p class="term-text">Дополнительные начисления за несвоевременную уплату налогов или ошибки в отчетности. <a href="pdf/urgent.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">надо срочно</a></p>
+        </div>
+
+        <!-- Карточка 85 -->
+        <div class="glossary-item" data-letter="С">
+          <div class="term-header">Сверка с налоговой</div>
+          <p class="term-text">Проверка правильности расчетов между компанией и налоговым органом по начисленным и уплаченным налогам. Анализ и сопоставление данных о начисленных и уплаченных налогах, отраженных на Едином налоговом счете (ЕНС). <a href="pdf/urgent.pdf" target="_blank" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">надо срочно</a></p>
+        </div>
+
+
+        <!-- Карточка 86 -->
+        <div class="glossary-item" data-letter="А">
+          <div class="term-header">Акт сверки с контрагентом</div>
+          <p class="term-text">Акт сверки — это двусторонний бухгалтерский документ, фиксирующий финансовые операции (отгрузки, услуги, оплаты) и определяющий остаток задолженности между контрагентами на конкретную дату. Он помогает избежать ошибок в учете и оперативно выявлять расхождения. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 87 -->
+        <div class="glossary-item" data-letter="Д">
+          <div class="term-header">Дебиторская задолженность «дебиторка»</div>
+          <p class="term-text">Сумма долгов, которую контрагенты (клиенты, партнеры, государство или сотрудники) временно не доплатили компании. Она часто возникает при отсрочке платежа, выдаче авансов или переплате налогов. По сути, это некая форма кредитования, которая увеличивает риски кассовых разрывов. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 88 -->
+        <div class="glossary-item" data-letter="К">
+          <div class="term-header">Кредиторская задолженность</div>
+          <p class="term-text">Сумма финансовых обязательств компании, которые нужно погасить в установленный срок. Она возникает, когда контрагенты или государство выполнили свои условия (поставили товары, оказали услуги, начислили налоги), а бизнес еще не перевел им оплату. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+
+        <!-- Карточка 89 -->
+        <div class="glossary-item" data-letter="К">
+          <div class="term-header">Кассовый метод учета</div>
+          <p class="term-text">Кассовый метод — это способ ведения финансового учета, при котором доходы и расходы признаются исключительно в момент фактического поступления или списания денежных средств. Он игнорирует выставленные счета или отгруженные товары, отражая только реальные денежные потоки.</p>
+        </div>
+
+        <!-- Карточка 90 -->
+        <div class="glossary-item" data-letter="Б">
+          <div class="term-header">Бухгалтерский счет</div>
+          <p class="term-text">Элемент системы бухгалтерского учета, предназначенный для группировки, хранения и обобщения информации об однородных хозяйственных операциях, имуществе, обязательствах и капитале организации. Каждый счет имеет наименование и цифровой код, по дебету и кредиту которого отражаются все изменения в финансово-хозяйственной деятельности компании.</p>
+        </div>
+
+        <!-- Карточка 91 -->
+        <div class="glossary-item" data-letter="П">
+          <div class="term-header">План счетов бухгалтерского учета</div>
+          <p class="term-text">Систематизированный перечень всех синтетических счетов, используемых в бухгалтерском учете организации, с указанием их цифровых кодов и наименований. Утвержден Приказом Минфина РФ и обязателен к применению всеми организациями. Например: счет 01 «Основные средства», 10 «Материалы», 50 «Касса», 51 «Расчетные счета», 60 «Расчеты с поставщиками и подрядчиками», 90 «Продажи» и другие. На основе Плана счетов организации разрабатывают рабочий план счетов с учетом специфики своей деятельности. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 92 -->
+        <div class="glossary-item" data-letter="С">
+          <div class="term-header">Счет на оплату</div>
+          <p class="term-text">Документ, выставляемый продавцом покупателю, который содержит реквизиты для безналичной оплаты товаров, работ или услуг: сумму, наименование товара/услуги, банковские реквизиты получателя, назначение платежа и срок оплаты. Счет на оплату не является первичным учетным документом, но служит основанием для проведения платежа и последующего оформления отгрузочных документов (акта, накладной, УПД). <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+        <!-- Карточка 93 -->
+        <div class="glossary-item" data-letter="Л">
+          <div class="term-header">Лицевой счет</div>
+          <p class="term-text">Индивидуальный регистр, открываемый банком клиенту (физическому или юридическому лицу) для учета его денежных средств и операций по ним. Также лицевой счет может открываться внутри организации для учета расчетов с конкретным сотрудником (по заработной плате, подотчетным суммам) или с контрагентом. В лицевом счете отражаются все поступления, списания и остаток средств на определенную дату. <a href="index.html#services" style="font-size: 9px; color: #aaaaaa; text-decoration: none; margin-left: 5px;">услуги</a></p>
+        </div>
+
+
+    </div> <!-- Конец glossary-grid -->
+  </div> <!-- Конец container -->
+</section>
+<!-- =========================
+   СЕКЦИЯ: КОНТАКТЫ И ПОДВАЛ
+========================= -->
+<section id="contacts" class="contacts-section">
+    <div class="container">
+        
+        <!-- Изящная тонкая синяя линия в ширину контейнера -->
+        <div class="contacts-divider-line"></div>
+        
+        <!-- Заголовок по центру -->
+        <h2 class="contacts-title">Контакты</h2>
+        
+        <!-- Горизонтальный ряд кнопок -->
+        <div class="contacts-buttons-grid">
+            
+            <!-- Кнопка 1: Написать -->
+            <div class="contact-btn-wrapper">
+                <a href="mailto:Box4599@yandex.ru?subject=Вопрос" class="contact-button">
+                    <img src="img/mail.png" alt="Письмо">
+                    <span>Написать</span>
+                </a>
+                <p class="contact-disclaimer">Напишите тему вашего вопроса, чтобы получить обратную связь быстрее.</p>
+            </div>
+
+            <!-- Кнопка 2: Позвонить -->
+            <div class="contact-btn-wrapper">
+                <a href="mailto:Box4599@yandex.ru?subject=Заказ звонка" class="contact-button">
+                    <img src="img/phone.png" alt="Телефон">
+                    <span>Позвонить</span>
+                </a>
+                <p class="contact-disclaimer">Напишите нам, чтобы заказать звонок. Это позволит получить обратную связь быстрее.</p>
+            </div>
+
+            <!-- Кнопка 3: WhatsApp -->
+            <div class="contact-btn-wrapper">
+                <a href="https://wa.me" target="_blank" class="contact-button">
+                    <img src="img/WhatsApp.png" alt="WhatsApp">
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+
+            <!-- Кнопка 4: Max -->
+            <div class="contact-btn-wrapper">
+                <a href="#" class="contact-button">
+                    <img src="img/Max.png" alt="Max">
+                    <span>Max</span>
+                </a>
+            </div>
+
+            <!-- Кнопка 5: VK -->
+            <div class="contact-btn-wrapper">
+                <a href="https://vk.com" target="_blank" class="contact-button">
+                    <img src="img/VK.png" alt="VK">
+                    <span>VK</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- СИНЯЯ ГРАДИЕНТНАЯ ПОЛОСА (ФУТЕР) -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-row">
+            
+            <!-- Логотип слева -->
+            <div class="footer-logo">
+                <img src="img/logo.png" alt="Логотип">
+            </div>
+            
+            <!-- Копирайт по центру -->
+            <div class="footer-copyright">
+                <p>© 2026 Lyudmila Khoziainova — Financial Expert. All rights reserved. Все права защищены.</p>
+            </div>
+            
+            <!-- Телефон справа -->
+            <div class="footer-phone">
+                <a href="tel:+79252129340">+7 925 212 93 40</a>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<!-- Скрипт алфавитного фильтра -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('alphabetContainer');
+    const items = document.querySelectorAll('.glossary-item');
+
+    container.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('letter-btn')) return;
+
+      container.querySelectorAll('.letter-btn').forEach(btn => btn.classList.remove('active'));
+      e.target.classList.add('active');
+
+      const filter = e.target.getAttribute('data-filter');
+
+      items.forEach(item => {
+        if (filter === 'all' || item.getAttribute('data-letter') === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
