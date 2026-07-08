@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Allow: /pdf/
 
-Sitemap: https://yourdomain.ru
+Sitemap: https://ваш-домен.ru/sitemap.xml
